@@ -1,3 +1,4 @@
+import {Header} from "@/src/widgets/header/ui/Header";
 
 const services = [
   {
@@ -23,20 +24,7 @@ const services = [
 export default function Home() {
   return (
       <main className="min-h-screen bg-white text-slate-900">
-        <header className="border-b border-slate-200">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-            <a href="#" className="text-xl font-bold tracking-tight">
-              Чистая вода<span className="text-cyan-600">.</span>
-            </a>
-
-            <a
-                href="#contacts"
-                className="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-cyan-700"
-            >
-              Связаться с мастером
-            </a>
-          </div>
-        </header>
+        <Header/>
 
         <section className="bg-slate-50">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
