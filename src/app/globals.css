@@ -1,19 +1,24 @@
-
 @import "../shared/styles/tokens.css";
-
-@theme inline {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-text);
-  --font-sans: var(--font-family-sans);
-}
 
 html {
   min-height: 100%;
 }
 
 body {
-  min-height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family-sans);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-line-height);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
