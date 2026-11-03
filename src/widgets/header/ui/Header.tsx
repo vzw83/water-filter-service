@@ -5,9 +5,14 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Button as="link" href="/#top" variant="brand" className={styles.logo} aria-label="Лёгкая вода — на главную">
-          Лёгкая вода<span className={styles.logoAccent}>.</span>
-        </Button>
+        <div className={styles.topRow}>
+          <Button as="link" href="/#top" variant="brand" className={styles.logo} aria-label="Лёгкая вода — на главную">
+            Лёгкая вода<span className={styles.logoAccent}>.</span>
+          </Button>
+          <Button as="link" href="/#contacts" variant="primary" className={styles.contactButton}>
+            Связаться
+          </Button>
+        </div>
 
         <nav className={styles.navigation} aria-label="Основная навигация">
           <Button as="link" href="/#services" variant="nav" className={styles.navLink}>Услуги</Button>
@@ -19,10 +24,6 @@ export const Header = () => {
           </Button>
           <Button as="link" href="/#contacts" variant="nav" className={styles.navLink}>Контакты</Button>
         </nav>
-
-        <Button as="link" href="/#contacts" variant="primary" className={styles.contactButton}>
-          Связаться
-        </Button>
       </div>
     </header>
   );

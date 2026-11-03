@@ -54,7 +54,6 @@
 .rating {
   display: flex;
   width: max-content;
-  flex-direction: row-reverse;
   justify-content: flex-end;
   gap: var(--spacing-1);
 }
@@ -81,9 +80,7 @@
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.ratingInput:checked ~ .star,
-.star:hover,
-.star:hover ~ .star {
+.starActive {
   color: #d99b14;
 }
 
@@ -172,5 +169,13 @@
 @media (max-width: 560px) {
   .section {
     padding: var(--spacing-6);
+  }
+
+  .rating {
+    gap: 0;
+  }
+
+  .star {
+    font-size: 1.4rem;
   }
 }

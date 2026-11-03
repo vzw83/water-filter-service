@@ -1,0 +1,103 @@
+.page {
+  display: grid;
+  flex: 1;
+  width: min(100% - 2 * var(--container-padding), 560px);
+  place-items: center;
+  margin-inline: auto;
+  padding-block: var(--spacing-12);
+}
+
+.card {
+  width: 100%;
+  padding: var(--spacing-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-background);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: var(--heading-2-size);
+  line-height: var(--heading-line-height);
+}
+
+.card > p:not(.eyebrow) {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.eyebrow {
+  margin: 0 0 var(--spacing-3);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  gap: var(--spacing-5);
+  margin-top: var(--spacing-6);
+}
+
+.form label {
+  display: grid;
+  gap: var(--spacing-2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.form input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: var(--font-weight-regular);
+}
+
+.form input:focus-visible,
+.modeLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.modeLink {
+  margin-top: var(--spacing-5);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.message {
+  margin: var(--spacing-4) 0 0;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  overflow-wrap: anywhere;
+}
+
+.signedIn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  width: min(100% - 2 * var(--container-padding), 980px);
+  margin: var(--spacing-4) auto 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 560px) {
+  .page {
+    width: min(100% - 2 * var(--spacing-4), 560px);
+  }
+
+  .card {
+    padding: var(--spacing-6);
+  }
+}
