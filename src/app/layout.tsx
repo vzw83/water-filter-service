@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Header } from "@/src/widgets/header";
 import { SiteFooter } from "@/src/widgets/site-footer";
+import { VisitTracker } from "@/src/shared/ui/visit-tracker/VisitTracker";
+import { ContactFab } from "@/src/shared/ui/contact-fab/ContactFab";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,9 +15,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru">
       <body>
+        <VisitTracker />
         <Header />
         {children}
         <SiteFooter />
+        <ContactFab />
       </body>
     </html>
   );

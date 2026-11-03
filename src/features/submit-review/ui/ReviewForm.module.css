@@ -54,7 +54,6 @@
 .rating {
   display: flex;
   width: max-content;
-  flex-direction: row-reverse;
   justify-content: flex-end;
   gap: var(--spacing-1);
 }
@@ -81,9 +80,7 @@
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.ratingInput:checked ~ .star,
-.star:hover,
-.star:hover ~ .star {
+.starActive {
   color: #d99b14;
 }
 
@@ -149,10 +146,27 @@
 }
 
 .fileInput {
+  min-width: 0;
   max-width: 100%;
+  flex: 1 1 220px;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.photoPreview {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  object-fit: cover;
 }
 
 .submitArea {
@@ -172,5 +186,13 @@
 @media (max-width: 560px) {
   .section {
     padding: var(--spacing-6);
+  }
+
+  .rating {
+    gap: 0;
+  }
+
+  .star {
+    font-size: 1.4rem;
   }
 }

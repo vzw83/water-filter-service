@@ -1,6 +1,6 @@
 import styles from "./ContactSection.module.css";
-
-const contactChannels = ["Звонок", "WhatsApp", "Telegram", "MAX"];
+import { CONTACT_METHODS } from "@/src/shared/lib/contactLinks";
+import { ContactMethodIcon } from "@/src/shared/ui/contact-method-icon/ContactMethodIcon";
 
 export function ContactSection() {
   return (
@@ -15,8 +15,20 @@ export function ContactSection() {
         </p>
       </div>
       <div className={styles.channels} aria-label="Способы связи">
-        {contactChannels.map((channel) => <span key={channel}>{channel}</span>)}
-        <p>Контактные ссылки добавим перед запуском сайта.</p>
+        {CONTACT_METHODS.map((method) => (
+          <a
+            href={method.href}
+            key={method.id}
+            target={method.id === "phone" ? undefined : "_blank"}
+            rel={method.id === "phone" ? undefined : "noreferrer"}
+          >
+            <ContactMethodIcon method={method.id} />
+            <span className={styles.linkCopy}>
+              <span>{method.label}</span>
+              {"hint" in method && <span className={styles.linkHint}>{method.hint}</span>}
+            </span>
+          </a>
+        ))}
       </div>
     </section>
   );

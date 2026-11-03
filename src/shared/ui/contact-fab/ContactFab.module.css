@@ -1,0 +1,129 @@
+.widget {
+  position: fixed;
+  z-index: calc(var(--z-sticky) + 1);
+  right: max(var(--spacing-6), env(safe-area-inset-right));
+  bottom: max(var(--spacing-6), env(safe-area-inset-bottom));
+  display: grid;
+  justify-items: end;
+  gap: var(--spacing-3);
+}
+
+.toggle {
+  display: grid;
+  width: 60px;
+  height: 60px;
+  place-items: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-background);
+  box-shadow: var(--shadow-md);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.toggle:hover {
+  transform: translateY(-2px);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.toggle svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.menu {
+  display: grid;
+  width: 244px;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-background);
+  box-shadow: var(--shadow-lg);
+  animation: rise-in 160ms ease-out;
+}
+
+.menuTitle {
+  margin: 0 0 var(--spacing-1);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.contactLink {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.contactLink:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface-hover);
+}
+
+.contactLink svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  fill: currentColor;
+}
+
+.contactCopy {
+  display: grid;
+  gap: 2px;
+}
+
+.contactHint {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+}
+
+.contactLink:first-of-type svg {
+  color: var(--color-primary);
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 560px) {
+  .widget {
+    right: max(var(--spacing-4), env(safe-area-inset-right));
+    bottom: max(var(--spacing-4), env(safe-area-inset-bottom));
+  }
+
+  .toggle {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    animation: none;
+  }
+
+  .toggle,
+  .contactLink {
+    transition: none;
+  }
+}
