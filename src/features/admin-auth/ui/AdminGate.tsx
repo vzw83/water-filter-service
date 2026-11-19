@@ -147,6 +147,11 @@ export function AdminGate({ children }: { children: ReactNode }) {
             {busy ? "Подожди…" : mode === "login" ? "Войти" : "Зарегистрироваться"}
           </Button>
         </form>
+        {mode === "login" && (
+          <Button as="link" href="/reviews/admin/reset-password" variant="text" className={styles.modeLink}>
+            Забыли пароль?
+          </Button>
+        )}
         <button className={styles.modeLink} type="button" onClick={() => { setMode(mode === "login" ? "register" : "login"); setMessage(""); }}>
           {mode === "login" ? "Первый раз? Создать аккаунт владельца" : "Уже зарегистрирован? Войти"}
         </button>
