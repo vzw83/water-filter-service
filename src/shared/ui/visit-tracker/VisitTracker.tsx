@@ -23,13 +23,14 @@ export function VisitTracker() {
       return;
     }
 
-    void supabase.from("site_visits").insert({ session_id: sessionId }).then(({ error }) => {
-      if (error && error.code !== "23505") {
-        clearSessionMarker(sessionId);
-      }
-    }).catch(() => {
-      clearSessionMarker(sessionId);
-    });
+    void supabase.from("site_visits").insert({ session_id: sessionId }).then(
+      ({ error }) => {
+        if (error && error.code !== "23505") {
+          clearSessionMarker(sessionId);
+        }
+      },
+      () => clearSessionMarker(sessionId),
+    );
   }, []);
 
   return null;
